@@ -1,0 +1,31 @@
+<%- include("../partials/header") %>
+
+<div class="row container">
+    <div class="col-sm-9 order-2 order-sm-1 all-boards">
+        <div class="row mt-5">
+            <% boards.forEach( board =>{ %>
+            <div class="col-lg-4 col-6">
+                <a href="/boards/<%= board._id %>" class="board text-white text-center">
+                    <p> <%= board.name %> </p>
+                </a>
+            </div>
+            <% }); %>
+            <div class="col-lg-4 col-6">
+                <a href="/boards/new" class="board text-white" id="newBoard">
+                    <p class="mb-0">Create New Board</p>
+                    <i class="fas fa-plus-circle"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 mt-5 order-1 order-sm-2">
+        <div class="username float-right">
+            <i class="far fa-user-circle"></i>
+            <h1><%= currentUser.username %> </h1>
+        </div>
+        <br>
+        <img src="puzzlelightborder.png">
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

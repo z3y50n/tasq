@@ -1,0 +1,162 @@
+html, body{ height:100%; margin:0; }
+
+.footer{ height:50px; background:rgba(105, 105, 105, 1); }
+
+body{ 
+    display:flex; 
+    flex-direction:column; 
+    
+}
+
+.footer{
+    margin-top:auto; 
+    widows: 100%;
+    z-index: 1;
+}
+
+i img{
+    width: 350px;
+    
+    margin: 0 auto;
+}
+
+.flash{
+    position: fixed;
+    max-width: 40%;
+    top:5em;
+    left:30%;
+    text-align: center;
+    z-index: 2;
+}
+
+.flash{
+    -moz-animation: cssAnimation 0s ease-in 3s forwards;
+    -webkit-animation: cssAnimation 0s ease-in 3s forwards;
+    -o-animation: cssAnimations 0s ease-in 3s forwards;
+    animation: cssAnimation 0s ease-in 3s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes cssAnimation{
+    to{
+        width: 0;
+        height:0;
+        overflow: hidden;
+    }
+}
+@-webkit-keyframes cssAnimation{
+    to{
+        width: 0;
+        height:0;
+        overflow: hidden;
+    }
+}
+
+.links{
+    margin-top: 4em;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 4em;
+}
+
+.board-header{
+    background-color: #2e3ae4;
+    height: 105px;
+    z-index: 1;
+}
+
+.board-header a{
+    text-decoration: none!important;
+}
+
+.board-header h1{
+    font-size: 4em;
+    font-weight: bold;
+    display: inline-block;
+    
+}
+
+img{
+    margin-top: 50px;
+    width: 100%;
+    float: right;
+
+}
+
+.board-header p{
+    font-size: 0.7em;
+}
+
+.board-header i{
+    font-size: 6em;
+}
+
+@media (max-width: 400px) {
+    .board-header h1 {
+        font-weight: bold;
+        font-size: 3rem;
+    }
+    .board-header p{
+        font-size: 0.55em;
+    }
+    .board-header i{
+        font-size: 5rem;
+    }
+}
+
+.all-boards{
+    overflow:auto;
+    height: 31em;
+}
+
+.board{
+    background-color: #2e3ae4cc;
+    border-radius: 10px;
+    height:6em;
+    margin-bottom: 2em;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none!important;
+}
+
+.board:hover{
+    background-color: #3f47aada;
+}
+
+.board:active{
+    background-color: #2e3ae4cc;
+}
+
+#newBoard{
+    background-color: #295827;
+    display:block;
+    text-align:center;
+    padding-top: 1.5em;
+}
+
+#newBoard:hover{
+    background-color: #287425;
+}
+
+#newBoard:active{
+    background-color: #295827;
+}
+
+.username{
+    display: inline-flex;
+}
+
+.username i{
+    font-size: 3em;
+    margin-right: 5px;
+}
+
+@media (max-width: 628px) and (min-width:576px){
+    .username h1{
+        font-size: 1.7em;
+    }
+    .username i{
+        font-size: 1.7em;
+    }
+}

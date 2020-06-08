@@ -1,0 +1,48 @@
+<%- include("../partials/header") %>
+
+<div class="row container-fluid m-0 p-0 ">
+    <div class="col-sm-8 all-tasks">
+        <div class="title-line">
+            <h2 class="mt-2 title-name">
+                <%= board.name %>
+            </h2>
+            <% if(board.creator.username === currentUser.username){ %> 
+            <div class="icons-right">
+                <form action="/boards/<%= board._id %>?_method=DELETE" method="POST" class="d-inline-block">
+                        <button class="btn btn-sm btn-danger  ml-1">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                </form>
+                <a href="/boards/<%= board._id %>/edit" class="btn btn-sm btn-warning d-inline-block">
+                    <i class="fas fa-pencil-alt"></i>
+                </a>
+            </div>
+        <% } %> 
+        </div>
+        <div class="row mt-3">
+            <% board.tasks.forEach( task =>{ %>
+            <div class="col-lg-4 col-6">
+                <a href="/boards/<%= board._id %>/tasks/<%= task._id %>" class="board text-white text-center task">
+                    <p><%= task.title %> </p>
+                </a>
+            </div>
+            <% }); %>
+
+            <div class="col-lg-4 col-6">
+                <a href="/boards/<%= board._id %>/tasks/new" class="board text-white" id="newBoard">
+                    <p class="mb-0">Create New Task</p>
+                    <i class="fas fa-plus-circle"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 grey-area bg-secondary d-flex justify-content-center">
+        <div class="align-self-end">
+            <a href="/boards/<%= board._id %>/new_member" class="btn btn-lg btn-success mb-3">Add Members</a>
+            <br>
+            <a href="/boards" id="bot-btn" class="btn btn-info">View Boards</a>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

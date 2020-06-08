@@ -1,0 +1,25 @@
+<%- include("../partials/header") %>
+
+<div class="container mt-3">
+    <div class="card mx-auto" style="width: 25rem;">
+        <h1 class="card-title text-center"><%= task.title %> </h1>
+        <div class="card-body">
+            <p class="d-inline"><%= task.deadline.toISOString().slice(0,10) %></p>
+            <p class="float-right"><%= task.status %></p>
+            <hr>
+            <p class="text-justify"><%= task.description %> </p>
+            <hr>
+            <a href="/boards/<%= board_id %>">Go Back</a>
+        </div>
+    </div>
+</div>
+<div class="mx-auto mt-3" style="width: 25rem;">
+    <a href="/boards/<%= board_id %>/tasks/<%= task._id %>/edit" class="btn btn-sm btn-warning d-inline-block ">Edit</a>
+    <form action="/boards/<%= board_id %>/tasks/<%= task._id %>?_method=DELETE" method="POST" class="d-inline-block">
+        <button class="btn btn-sm btn-danger  ml-1">
+            Delete
+        </button>
+    </form>
+</div>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,27 @@
+<%- include("../partials/header") %>
+
+<script src="/assets/app/js"></script>
+
+<div class="container pr-5">
+    <h1 class="text-center my-4">Edit <%= task.title %> </h1>
+    <div style="width:40%; margin:0 auto;">
+        <form action="/boards/<%= board_id %>/tasks/<%= task._id %>?_method=PUT" method="POST">
+            <input class="form-control form-group" type="text" name="task[title]" value="<%= task.title %>">
+            <label for="description">Description: </label>
+            <textarea class="form-control form-group" name="task[description]" id="description" cols="30" rows="5"><%= task.description %> </textarea>
+            <label for="status">Change Status: </label>
+            <select class="form-control form-group" name="task[status]" id="status">
+                <option value="On Going" <% if(task.status==="On Going") {%> selected <% } %>>On Going</option>
+                <option value="Completed" <% if(task.status==="Completed") {%> selected <% } %>>Completed</option>
+                <option value="Abandoned" <% if(task.status==="Abandoned") {%> selected <% } %> >Abandoned</option>
+                <option value="Halted" <% if(task.status==="Halted") {%> selected <% } %>>Halted</option>
+            </select>
+            <label for="date">Deadline: </label>
+            <input id="date" class="form-control form-group" type="date" name="task[deadline]" value="<%= task.deadline.toISOString().slice(0,10) %>">
+            <button class="btn btn-lg btn-outline-primary btn-block my-2">Submit!</button>
+        </form>
+        <a href="/boards/<%= board_id %>/tasks/<%= task._id %>">Go Back</a>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

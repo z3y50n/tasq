@@ -1,0 +1,20 @@
+<%- include("../partials/header") %>
+
+<script src="/assets/app/js"></script>
+
+<div class="container pr-5">
+    <h1 class="text-center my-4">Create a new Task</h1>
+    <div style="width:40%; margin:0 auto;">
+        <form action="/boards/<%= board._id %>/tasks" method="POST">
+            <input class="form-control form-group" type="text" name="task[title]" placeholder="title" required>
+            <label for="description">Description: </label>
+            <textarea class="form-control form-group" name="task[description]" id="description" cols="30" rows="5"></textarea>
+            <label for="date">Deadline: </label>
+            <input id="date" class="form-control form-group" type="date" name="task[deadline]" required>
+            <button class="btn btn-lg btn-outline-primary btn-block my-2">Submit!</button>
+        </form>
+        <a href="/boards/<%= board._id %>">Go Back</a>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

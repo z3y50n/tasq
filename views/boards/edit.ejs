@@ -1,0 +1,15 @@
+<%- include("../partials/header") %>
+
+<div class="container pr-5">
+    <h1 class="text-center my-4"> Edit <%= board.name %> </h1>
+    <div style="width:40%; margin:0 auto;">
+        <form action="/boards/<%= board._id %>?_method=PUT" method="POST">
+            <input class="form-control form-group" type="text" name="board[name]" value="<%= board.name %> ">
+            <button class="btn btn-lg btn-outline-primary btn-block my-2">Submit!</button>
+        </form>
+
+        <a href="/boards/<%= board._id %>">Go Back</a>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

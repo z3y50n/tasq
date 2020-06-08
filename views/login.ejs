@@ -1,0 +1,17 @@
+<%- include('./partials/header'); %>
+
+<h1 class="mx-auto mt-3">Log In!</h1>
+
+<form action="/login" method="POST" class="mx-auto">
+    <input type="text" name="username" placeholder="username">
+    <br>
+    <input type="password" name="password" placeholder="password" class="mt-2">
+    <br>
+    <button class="btn btn-success mt-2">Login</button>
+</form>
+
+<div class="links">
+    <a href="/auth/google" class="btn btn-lg btn-warning">Google Login</a>
+</div>
+
+<%- include('./partials/footer'); %>

@@ -1,0 +1,23 @@
+<%- include("../partials/header") %>
+
+<div class="container pr-5">
+    <h1 class="text-center my-4">Add a new Member</h1>
+    <div style="width:40%; margin:0 auto;">
+        <form action="/boards/<%= board_id %>/new_member" method="POST">
+            <input class="form-control form-group" type="text" name="username" placeholder="username" list="users" autocomplete="off">
+            <datalist id="users">  
+                <% for(let i=0;i<users.length;i++){ %>
+                    <% if(users[i].username === currentUser.username){ %>
+                        <% continue; %> 
+                    <% } %> 
+                    <option value="<%= users[i].username %>"></option>
+                <% } %> 
+            </datalist>
+            <button class="btn btn-lg btn-outline-primary btn-block my-2">Submit!</button>
+        </form>
+
+        <a href="/boards/<%= board_id %> ">Go Back</a>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>
